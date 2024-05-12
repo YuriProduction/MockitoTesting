@@ -65,11 +65,9 @@ public class CustomerServiceTest {
     public void testNotSaveCustomerWithSamePhone() throws Exception {
         Mockito.when(customerDaoMock.exists(Mockito.any(String.class)))
                 .thenReturn(Boolean.TRUE);
-
         Customer customer = new Customer(0, "11-11-11");
         Assertions.assertFalse(customerService.addCustomer(customer));
     }
-
     /**
      * Тестирование корректной обработки ошибки, возникшей в БД.
      * <p>Показательный пример: Кинуть исключение из mock объекта
